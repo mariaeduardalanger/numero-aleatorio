@@ -1,2 +1,2 @@
 # numero-aleatorio
-um jogo de "acerte o número" feito no pyhton
+um jogo de "acerte o número"
