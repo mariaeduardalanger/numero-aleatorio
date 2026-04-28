@@ -1,24 +1,31 @@
 import random
 
+# Constantes facilitam a manutenção do código
+LIMITE_INFERIOR = 1
+LIMITE_SUPERIOR = 100
+
 def jogar():
-    print("--- Bem-vindo ao número aleatório! ---")
-    print("Estou pensando em um número entre 1 e 100.")
+    print(f"--- Bem-vindo ao Jogo de Adivinhação! ---")
+    print(f"Estou pensando em um número entre {LIMITE_INFERIOR} e {LIMITE_SUPERIOR}.")
     
-    numero_secreto = random.randint(1, 100)
+    numero_secreto = random.randint(LIMITE_INFERIOR, LIMITE_SUPERIOR)
     tentativas = 0
-    acertou = False
 
-    while not acertou:
-        chute = int(input("Qual o seu chute? "))
-        tentativas += 1
+    while True:
+        try:
+            chute = int(input(f"Qual o seu chute ({LIMITE_INFERIOR}-{LIMITE_SUPERIOR})? "))
+            tentativas += 1
 
-        if chute == numero_secreto:
-            print(f"Parabéns! Você acertou em {tentativas} tentativas.")
-            acertou = True
-        elif chute < numero_secreto:
-            print("Esse número é muito baixo. Tente um maior.")
-        else:
-            print("Esse número é muito alto. Tetnte um menor.")
+            if chute == numero_secreto:
+                print(f"✅ Parabéns! Você acertou em {tentativas} tentativas.")
+                break
+            elif chute < numero_secreto:
+                print("⬆️ Mais alto! Tente um número maior.")
+            else:
+                print("⬇️ Mais baixo! Tente um número menor.")
+        
+        except ValueError:
+            print("❌ Erro: Por favor, digite apenas números inteiros.")
 
 if __name__ == "__main__":
     jogar()
