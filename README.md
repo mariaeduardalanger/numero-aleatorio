@@ -1,34 +1,28 @@
-# 🕹️ Media Pipeline & 2D Game Development
 
-Este repositório demonstra um fluxo de trabalho completo de engenharia de software: desde a **automação de processamento de ativos** até a implementação de um **jogo funcional** utilizando esses recursos.
+# 🎲 Jogo de Adivinhação (Número Aleatório)
 
-O foco aqui foi resolver dois grandes gargalos no desenvolvimento de jogos: a padronização manual de arquivos e a gestão de caminhos em arquivos executáveis.
+Um clássico jogo de terminal desenvolvido em **Python** onde o usuário tenta adivinhar um número secreto gerado aleatoriamente pelo computador. 
 
----
-
-## 🛠️ Componentes do Projeto
-
-### 1. Script de Automação de Assets (`asset_processor.py`)
-Uma ferramenta CLI robusta para preparar arquivos brutos para o motor de jogo.
-* **Imagens:** Redimensionamento em lote para **20x20 pixels** usando o filtro `NEAREST` para manter a fidelidade de Pixel Art.
-* **Áudio:** Conversão automática de diversos formatos (`.mp3`, `.flac`) para `.wav` via integração com **FFmpeg**.
-* **Resiliência:** Verificação automática de dependências de sistema antes da execução.
-
-### 2. Catch The Hearts Game (`game.py`)
-Um mini-game desenvolvido em **Pygame** focado em mecânicas de captura e progressão.
-* **Dificuldade Progressiva:** Aceleração linear da velocidade dos itens para aumentar o desafio.
-* **Arquitetura EXE-Ready:** Uso da função `path_recurso` para compatibilidade total com o **PyInstaller** (garante que o jogo encontre as imagens mesmo compilado).
-* **Sistema de Fallback:** Se um asset falhar no carregamento, o jogo gera um substituto visual dinâmico em tempo de execução.
+Este projeto foi criado para demonstrar conceitos fundamentais de programação e boas práticas de desenvolvimento.
 
 ---
+
+## ✨ Funcionalidades
+
+* **Geração Aleatória:** Utiliza a biblioteca `random` do Python para garantir um número secreto diferente a cada partida.
+* **Tratamento de Erros:** Implementação de blocos `try/except` para evitar que o programa trave caso o usuário digite algo que não seja um número.
+* **Feedback em Tempo Real:** O jogo informa se o chute foi "muito alto" ou "muito baixo", ajudando na estratégia do jogador.
+* **Contador de Tentativas:** Exibe o desempenho final do usuário ao acertar o número.
+
+## 🛠️ Tecnologias Utilizadas
+
+* **Python 3.x**: Linguagem principal.
+* **Módulo Random**: Para a lógica de sorteio.
 
 ## 🚀 Como Executar
 
-### Pré-requisitos
-* Python 3.x
-* [FFmpeg](https://ffmpeg.org/) configurado no sistema.
-
-### Instalação
-```bash
-# Instale as dependências necessárias
-pip install pygame Pillow pydub
+1. Certifique-se de ter o Python instalado em sua máquina.
+2. Salve o código em um arquivo chamado `main.py`.
+3. Abra o terminal na pasta do arquivo e execute:
+   ```bash
+   python main.py
